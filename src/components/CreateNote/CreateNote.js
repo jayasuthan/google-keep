@@ -1,14 +1,15 @@
-import React, { useState } from "react";
 import { Fab } from "@material-ui/core";
 import Zoom from "@material-ui/core/Zoom";
 import AddIcon from "@material-ui/icons/Add";
 import "./CreateNote.css";
+import React, { useState } from "react";
 
 const CreateNote = (props) => {
   const [note, setNote] = useState({
     title: "",
     content: "",
   });
+
   const [isExpanded, setIsExpanded] = useState(false);
 
   const expand = () => {
@@ -17,7 +18,6 @@ const CreateNote = (props) => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
     setNote((previousNote) => {
       return {
         ...previousNote,
@@ -25,15 +25,16 @@ const CreateNote = (props) => {
       };
     });
   };
-
+  
   const submitNote = (event) => {
-    event.preventDefault();
-    props.addNote(note);
-    setNote({ title: "", content: "" });
-    setIsExpanded(false);
+  event.preventDefault();
+  props.addNote(note);
+  setNote({ title: "", content: "" });
+  setIsExpanded(false);
   };
 
   return (
+    
     <div>
       <form className="create-note">
         {isExpanded && (

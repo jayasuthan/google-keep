@@ -2,19 +2,21 @@ import React from "react";
 import "./Note.css";
 import DeleteIcon from "@material-ui/icons/Delete";
 
-const Note = (props) => {
+const Note = ({title,content,id,deleteNote}) => {
   const handleClick = () => {
-    props.deleteNote(props.id);
+        deleteNote(id);
   };
-
+  
   return (
+
     <div className="note">
-      <h1>{props.title}</h1>
-      <h1>{props.content}</h1>
+      <h1>{title}</h1>
+      <h1>{content}</h1>
       <button onClick={handleClick}>
         <DeleteIcon />
       </button>
     </div>
+
   );
 };
 
